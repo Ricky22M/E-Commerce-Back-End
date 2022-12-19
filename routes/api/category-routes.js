@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       model: Product,
       attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
     },
-  }).then(allCategories => res.json(allCategories)).catch(err => {
+  }).then(insideDBCategories => res.json(insideDBCategories)).catch(err => {
     console.log(err);
     res.status(500).json(err);
   });
@@ -28,12 +28,12 @@ router.get('/:id', (req, res) => {
       model: Product,
       attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
     }
-  }).then(allCategories => {
-    if (!allCategories) {
+  }).then(insideDBCategories => {
+    if (!insideDBCategories) {
       res.status(404).json({ message: 'No categories have been found'});
       return;
     }
-    res.json(allCategories);
+    res.json(insideDBCategories);
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -44,8 +44,8 @@ router.post('/', (req, res) => {
   // create a new category
   Category.create({
     category_name: req.body.catergory_name
-  }).then(allCategories => {
-    res.json(allCategories);
+  }).then(insideDBCategories => {
+    res.json(insideDBCategories);
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -58,12 +58,12 @@ router.put('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-  }).then(allCategories => {
-    if (!allCategories[0]) {
+  }).then(insideDBCategories => {
+    if (!insideDBCategories[0]) {
       res.status(404).json({ message: 'No categories have been found'});
       return;
     }
-    res.json(allCategories);
+    res.json(insideDBCategories);
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -76,8 +76,8 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-  }).then(allCategories => {
-    if (!allCategories) {
+  }).then(insideDBCategories => {
+    if (!insideDBCategories) {
       res.status(404).json({ message: 'No categories have been found'});
       return;
     }
