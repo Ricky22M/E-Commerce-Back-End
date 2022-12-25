@@ -2,9 +2,8 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  [//]: <> (Create a Walkthrough Video heading here with walthrough video)
   ## Walkthrough Video
-  [Walkthrough Video Here](http.pathwaylinktourl)
+  [Walkthrough Video Here](https://drive.google.com/file/d/1OoKe3GnYvh9zCluxHWnrkXrvZr8v_jIR/view)
 
   ## Description
   An application that allows the user to handle the backend of an e-commerce app.
